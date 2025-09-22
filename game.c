@@ -100,7 +100,7 @@ int main(void) {
             player.balls[i].targetPos.x = Clamp(player.balls[i].targetPos.x, player.balls[i].radius, map_size.x - player.balls[i].radius);
             player.balls[i].targetPos.y = Clamp(player.balls[i].targetPos.y, player.balls[i].radius, map_size.y - player.balls[i].radius);
         }
-        ////////////////////////////////////////////////////////ПОЛНОСТЬЮ РАЗОБРАТЬ БЛОК ВЫШЕ!!//////////////////////////////////////
+
 
         if (IsKeyPressed(KEY_SPACE)) {
             SplitPlayer(&player, mousePos, minBallRadius, maxBallsCount, minSpeed);
@@ -109,7 +109,7 @@ int main(void) {
             }
         }
 
-        for (int i = 0; i < player.currentBallsCount; i++) {//БЛОК ПЛАВНОСТИ
+        for (int i = 0; i < player.currentBallsCount; i++) {
             player.balls[i].lifetime += deltaTime;//
             player.balls[i].pos = Vector2Lerp(player.balls[i].pos, player.balls[i].targetPos, deltaTime * posSmoothSpeed);
             player.balls[i].radius = Lerp(player.balls[i].radius, player.balls[i].targetRadius, deltaTime * radiusSmoothSpeed);
@@ -133,11 +133,10 @@ int main(void) {
 
         BeginDrawing();
         ClearBackground(WHITE);
-
         BeginMode2D(camera);
         DrawTexture(texture, 0,0, WHITE);
 
-        for (int x = 0; x <= map_size.x; x += cell_size) {//Рисуем сетку.
+        for (int x = 0; x <= map_size.x; x += cell_size) {
             DrawLine(x,0,x, map_size.y, LIGHTGRAY);
         }
         for (int y = 0; y <= map_size.y; y += cell_size) {
