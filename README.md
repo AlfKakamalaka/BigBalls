@@ -1,7 +1,7 @@
-# Agar.io-like Game
+# Agar.io-like Game(TEST)
 
 ## How to Play
-- Download the build and run the `.exe` file.  
+- Download the build and run the `BigBalls.exe` file.  
 - Or compile it yourself using **CMake**.  
 
 ## Controls
